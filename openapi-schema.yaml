@@ -1,0 +1,157 @@
+openapi: "3.0.0"
+info:
+  version: "1.0.0"
+  title: "API Schema"
+paths:
+  /last-completed-billing-date:
+    get:
+      summary: Get last completed billing date
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  lastCompletedBillingDate:
+                    type: string
+                    format: date
+  /group-daily-cost/{group}:
+    get:
+      summary: Get group daily cost
+      parameters:
+        - in: path
+          name: group
+          required: true
+          schema:
+            type: string
+          description: Group identifier
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  groupDailyCost:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/FocusCostSchema'
+  /product-insights/{product}:
+    get:
+      summary: Get product insights
+      parameters:
+        - in: path
+          name: product
+          required: true
+          schema:
+            type: string
+          description: Product identifier
+        - in: query
+          name: project
+          schema:
+            type: string
+          description: Project name
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  productInsights:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/FocusCostSchema'
+components:
+  schemas:
+    FocusCostSchema:
+      type: object
+      properties:
+        AvailabilityZone:
+          type: string
+        BilledCost:
+          type: number
+        BillingAccountId:
+          type: string
+        BillingAccountName:
+          type: string
+        BillingCurrency:
+          type: string
+        BillingPeriodEnd:
+          type: string
+        BillingPeriodStart:
+          type: string
+        ChargeCategory:
+          type: string
+        ChargeDescription:
+          type: string
+        ChargeFrequency:
+          type: string
+        ChargePeriodEnd:
+          type: string
+        ChargePeriodStart:
+          type: string
+        ChargeSubcategory:
+          type: string
+        CommitmentDiscountCategory:
+          type: string
+        CommitmentDiscountId:
+          type: string
+        CommitmentDiscountName:
+          type: string
+        CommitmentDiscountType:
+          type: string
+        EffectiveCost:
+          type: number
+        InvoiceIssuer:
+          type: string
+        ListCost:
+          type: number
+        ListUnitPrice:
+          type: number
+        PricingCategory:
+          type: string
+        PricingQuantity:
+          type: number
+        PricingUnit:
+          type: string
+        Provider:
+          type: string
+        Publisher:
+          type: string
+        Region:
+          type: string
+        ResourceId:
+          type: string
+        ResourceName:
+          type: string
+        ResourceType:
+          type: string
+        ServiceCategory:
+          type: string
+        ServiceName:
+          type: string
+        SkuId:
+          type: string
+        SkuPriceId:
+          type: string
+        SubAccountId:
+          type: string
+        SubAccountName:
+          type: string
+        Tags:
+          type: object
+          additionalProperties:
+            oneOf:
+              - type: string
+              - type: number
+              - type: boolean
+              - type: 'null'
+        UsageQuantity:
+          type: number
+        UsageUnit:
+          type: string
