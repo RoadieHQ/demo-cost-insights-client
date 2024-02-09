@@ -51,4 +51,4 @@ Most cloud providers expose their cost data through their UI with an option to e
 * FOCUS specification open source repository: https://github.com/FinOps-Open-Cost-and-Usage-Spec/FOCUS_Spec
 * The FinOps foundation: https://www.finops.org/
 * FOCUS schema converters repository: https://github.com/finopsfoundation/focus_converters
-* Roadie documentation for Cost Insights: https://roadie.io/docs/cost-insights
+* Roadie documentation for Cost Insights: https://roadie.io/docs/cost-insights/overview
