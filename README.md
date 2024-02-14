@@ -30,7 +30,16 @@ The OpenAPI spec for the endpoints, with correct expected data types, can be fou
 
 For expediency, this demo backend is created using **`node.js`** which **is not the best environment to handle potentially large amounts of cost data** . It is likely preferable to create a solution using environments more suited handling _parquet_ files directly and capable of sorting, aggregating and managing big datasets. Alternatively data manipulation can be done on other environments more suited to it, like Google's BigQuery or AWS Athena.
 
-This repository contains a sample dataset which is directly exposed through the demo endpoints without further modifications. In real world scenario the data is filtered down to expose only needed items (based on `product` configuration for example) and aggregated to expose only daily aggregates of the data, since that is the granularity that the Cost Insights plugin visualizes.
+This repository contains a generator for a sample dataset which is directly exposed through the demo endpoints without further modifications. In real world scenario the data is filtered down to expose only needed items (based on `product` configuration for example) and aggregated to expose only daily aggregates of the data, since that is the granularity that the Cost Insights plugin visualizes.
+
+
+### Generating sample data
+
+1. Ensure you have `node.js` and `NPM` installed.
+2. Install dependencies
+    - Run `npm i` from the root of the repository
+3. Start the server
+    - Run `npm run generate:dummy`, the helper script will generate a sample dataset into the `data` folder into a file called `dummy-data.json`
 
 ### Running the demo backend
 
